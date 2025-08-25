@@ -2,6 +2,7 @@
 **Author**: [Morgan Nash](mailto:morganmichellenash@gmail.com)
 
 ![manual pump](images/manual_pump.jpg)
+\
 [Photo from Tanzania Rural Revival](https://tanzaniaruralrevival.org.uk/2017-visit/) 
 
 # Overview
@@ -12,13 +13,13 @@ Tanzania is facing a water crisis due to many factors, some of them include clim
 ## Stakeholders:
 * Non Government Organizations (NGOs) focused on helping Tanzania gain clean water access
 * Government of Tanzania
-# Objective 
+# Objective: 
 This project aims to:
 * Gain deeper understanding of the factors that affect the functionality of a pump
 * Build classification models using the features of the dataset
 * Test and evaluate the models
 * Address conclusions, recommendations, and limitations that the stakeholders can use
-# Data Understanding 
+# Data Understanding: 
 The data for this project comes from [Taarifa](https://taarifa.org), who compiled data from the Tanzania Ministry of Water, and was accessed through [DrivenData.org](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/). The data contains 59,400 records of water wells, each with 41 features. Our target is status_group which contains labeling of whether a pump is functional, functional needs repair, or non functional. After cleaning the data, we'll be using the features to build a classification model to predict the status of water wells. 
 Training Labels Dataset:
 * id: Unique identifier for each water pump
@@ -65,6 +66,8 @@ Training Values Dataset:
 * waterpoint_type - The kind of waterpoint
 * waterpoint_type_group - The kind of waterpoint
 
+# Exploratory Data Analysis:
+
 
 ## Data Preparation:
 I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair" 
@@ -94,16 +97,36 @@ The following are the numerical columns I drop as well as the reason to drop:\
 The following are the columns kept for modeling: 
 **status_group, amount_tsh, gps_height, longitude, latitude, region, population, public_meeting, scheme_management, permit, construction_year, extraction_type_class, management_group, payment_type, quantity, source_type, waterpoint_type_group**
 
-# Exploratory Data Analysis
+![Distribution Pump Status](distribution_pump_status.png)
 
-# Modeling 
+# Modeling: 
 
-# Conclusion
+# Conclusions:
 
-## Limitations
+## Limitations:
+* **Static:** This data was recorded from 2004-2013, but is treated as a snapshot. Having access to data recorded over time could give us further insight into a specific point when a pump becomes non-functional. The actual conditions are constantlly changing. Climate change, fluctuations in water levels, rate of pump degradation, as well as current installers and maintenance crews could all be different now.
+  
+* **High Cardinality** of the Funder and Installer Columns. I moved forward in the data set without the funder and installer columns due to their high cardinality.
 
-## Recommendations
+* **Missing Key Features:** This dataset is missing information about other key factors that would heavily influence water pump functionality; for example: the quality of pump parts and the frequency of pump use.
 
-## Next Steps
+* **Missing Data and Imputation:** This dataset contains a significant amount of missing values for certain key features, which necessitated the use of imputation to handle these gaps. However, this may have introduced imputation bias, potentially affecting the model's accuracy and generalizability.
+
+
+## Recommendations:
+1. **Implement a Geographically-Focused Maintenance Strategy:** Create Regional Maintenance Schedules that prioritize regions with the highest amount of pumps needing repair. This focuses resources in the geographical areas that will see the greatest return on investment.
+
+2. **Develop a Quality Control Program for Installers:** It's possible that specific installers could be associated with a higher rate of pump failures. This moves from just fixing the pumps to looking more specifically at if the pumps broke because of human error. Moving forward, installers with higher functionality rates should be selected for installing water pumps, and installers that have a low rate of functionality could either not be selected or be better trained.
+
+3. **Explore Advanced Modeling:** Try other kinds of classification models like Random Forest or Gradient Boosting.
+
+## Next Steps:
+1. Prioritize maintenance and repairs.
+   
+2. Improve Data Collection:
+ - Gather more recent data that has been recorded on water pumps in Tanzania.
+ - Collect and record information from any maintenance or repairs in real time.
+
+3. Switch to a proactive system by implementing a predictive model that labels pumps as high-risk before they stop working.
 
 
