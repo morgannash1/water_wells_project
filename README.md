@@ -1,6 +1,8 @@
 # Tanzania Water Wells Project
 **Author**: [Morgan Nash](mailto:morganmichellenash@gmail.com)
 
+![manual pump](images/manual_pump.jpg)
+
 # Overview
 This project aims to build classification models to predict the functionality of water wells in Tanzania to help Non-Government Organizations determine which wells they need to repair as well as give insite to factors that most strongly affect water pump functionality.
 
