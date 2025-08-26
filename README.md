@@ -1,7 +1,7 @@
 # Tanzania Water Wells Project
 **Author**: [Morgan Nash](mailto:morganmichellenash@gmail.com)
 
-<img src="images/manual_pump.jpg" width="600">
+<img src="images/manual_pump.jpg" width="900">
 
 \
 [Photo from Tanzania Rural Revival](https://tanzaniaruralrevival.org.uk/2017-visit/) 
@@ -9,7 +9,7 @@
 # Overview:
 This project aims to build classification models to predict the functionality of water wells in Tanzania to help Non-Government Organizations determine which wells they need to repair as well as give insite to factors that most strongly affect water pump functionality.
 
-<img src="images/hand_pump_diagram.png" width="600">
+<img src="images/hand_pump_diagram.png" width="400">
 
 \
 [Photo from Manco Capac](https://commons.wikimedia.org/wiki/File:Hand_pump-en.svg)
@@ -74,15 +74,20 @@ Training Values Dataset:
 * waterpoint_type_group - The kind of waterpoint
 
 # Exploratory Data Analysis:
+I began by making the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label ("needs repair").
 
-<img src="images/distribution_pump_status.png" width="600">
+* Target Variable: I began by analyzing the target variable, status_group. The data was originally divided into three classes: 'functional', 'functional needs repair', and 'non functional'. To simplify the classification problem, I converted this into a binary classification problem by combining 'functional needs repair' and 'non functional' into a single 'needs repair' label.
+* The following shows the distribution of the classes after making status_group binary:
 
-I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair"
+  
+<img src="images/distribution_pump_status.png" width="400">
+
+
+* Initial Feature Exploration: I performed an initial analysis of the dataset's features by examining their value counts. This step helped me identify inconsistencies in the data, understand the cardinality of the categorical columns, and identify a significant amount of missing values in certain key features, which I address before modeling.
 
 
 ## Data Preparation:
-There is a high amount of redundancy among columns, as well as columns with very high cardinality. 
-
+There is a high amount of redundancy among this dataset's features, as well as very high cardinality among some of the features.
 The following are the categorical columns that I drop as well as the reason to drop:\
 **recorded_by**: This is the same string for every entry\
 **management**: I will keep management_group which contains slightly broader categories of management\
@@ -115,9 +120,9 @@ The following are the columns kept for modeling:
 
 <img src="images/model_eval_metrics.png" width="600">
 
-<img src="images/quantity_status.png" width="600">
+<img src="images/quantity_status.png" width="700">
 
-<img src="images/region_status.png" width="600">
+<img src="images/region_status.png" width="700">
 
 
 # Conclusions:
