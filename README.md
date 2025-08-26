@@ -5,10 +5,15 @@
 \
 [Photo from Tanzania Rural Revival](https://tanzaniaruralrevival.org.uk/2017-visit/) 
 
-# Overview
+# Overview:
 This project aims to build classification models to predict the functionality of water wells in Tanzania to help Non-Government Organizations determine which wells they need to repair as well as give insite to factors that most strongly affect water pump functionality.
 
-# Business Understanding 
+![hand_pump_diagram](hand_pump_diagram.png)
+\
+[Photo from Manco Capac](https://commons.wikimedia.org/wiki/File:Hand_pump-en.svg)
+
+
+# Business Understanding: 
 Tanzania is facing a water crisis due to many factors, some of them include climate change (droughts), higher demand for water due to increased population, and infrastructure and management issues (lack of funding for investment in proper infrastructure). Tanzania's water supply sytem has frequent water pump breakdowns which lead to frequent disruptions in water supply. Not having access to clean water means significant time and energy is spent on travelling to collect water, taking people away from work leading to subsequent socio-economic losses. Access to safe water and sanitation improves health and helps families protect themselves from illness and disease. The Government of Tanzania as well as certain Non-Government Organizations aim to mitigate the water crisis by strategically increasing investment in the maintenance and functionality of water wells across the country.
 ## Stakeholders:
 * Non Government Organizations (NGOs) focused on helping Tanzania gain clean water access
@@ -102,6 +107,16 @@ The following are the columns kept for modeling:
 # Modeling: 
 
 # Conclusions:
+* The Decision Tree Model was a better fit for this dataset. The Decision Tree Model outperformed all of the Logistic Regression Models which shows strong evidence that the relationships between this dataset's features and the water pump status are non-linear, and the Decision Tree's ability to capture these complex interactions is what gave it a major performance advantage.
+
+* Based on the Feature Importance Analysis using the Decision Tree Model, the geographical location and elevation of a water pump (Latitude, Longitude, and GPS Height) were the most predictive factors for its functionality.
+  
+* Both kinds of models made it clear that the quantity of water available to the wells has a very large impact on the pump functionality. Over 97% of water pumps that have "dry" listed as the quantity of water are in need of repair, highlighting that this is a very strong single indicator of a non-functional pump.
+
+* Lindi and Mtwara are the regions that have the highest percent of water pumps that need repair.
+
+* Mbeya and Kilimanjaro are the regions that have the highest number of water pumps that need repair.
+
 
 ## Limitations:
 * **Static:** This data was recorded from 2004-2013, but is treated as a snapshot. Having access to data recorded over time could give us further insight into a specific point when a pump becomes non-functional. The actual conditions are constantlly changing. Climate change, fluctuations in water levels, rate of pump degradation, as well as current installers and maintenance crews could all be different now.
