@@ -72,7 +72,9 @@ Training Values Dataset:
 * waterpoint_type_group - The kind of waterpoint
 
 # Exploratory Data Analysis:
-I began by l
+![Distribution Pump Status](images/distribution_pump_status.png)
+
+I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair"
 
 ## Data Preparation:
 I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair" 
@@ -102,7 +104,6 @@ The following are the numerical columns I drop as well as the reason to drop:\
 The following are the columns kept for modeling: 
 **status_group, amount_tsh, gps_height, longitude, latitude, region, population, public_meeting, scheme_management, permit, construction_year, extraction_type_class, management_group, payment_type, quantity, source_type, waterpoint_type_group**
 
-![Distribution Pump Status](images/distribution_pump_status.png)
 
 # Modeling: 
 
