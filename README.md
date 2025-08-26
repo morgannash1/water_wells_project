@@ -76,8 +76,8 @@ Training Values Dataset:
 
 I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair"
 
+
 ## Data Preparation:
-I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair" 
 There is a high amount of redundancy among columns, as well as columns with very high cardinality. 
 
 The following are the categorical columns that I drop as well as the reason to drop:\
@@ -106,6 +106,16 @@ The following are the columns kept for modeling:
 
 
 # Modeling: 
+
+
+
+![Model Evaluation Metrics](images/model_eval_metrics.png)
+
+![Quantity Status](images/quantity_status.png)
+
+![Region Status](images/region_status.png)
+
+
 
 # Conclusions:
 * The Decision Tree Model was a better fit for this dataset. The Decision Tree Model outperformed all of the Logistic Regression Models which shows strong evidence that the relationships between this dataset's features and the water pump status are non-linear, and the Decision Tree's ability to capture these complex interactions is what gave it a major performance advantage.
