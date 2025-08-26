@@ -1,14 +1,16 @@
 # Tanzania Water Wells Project
 **Author**: [Morgan Nash](mailto:morganmichellenash@gmail.com)
 
-![manual pump](images/manual_pump.jpg)
+<img scr="images/manual_pump.jpg" width="600">
+
 \
 [Photo from Tanzania Rural Revival](https://tanzaniaruralrevival.org.uk/2017-visit/) 
 
 # Overview:
 This project aims to build classification models to predict the functionality of water wells in Tanzania to help Non-Government Organizations determine which wells they need to repair as well as give insite to factors that most strongly affect water pump functionality.
 
-![hand_pump_diagram](images/hand_pump_diagram.png) 
+<img scr="images/hand_pump_diagram.png" width="600">
+
 \
 [Photo from Manco Capac](https://commons.wikimedia.org/wiki/File:Hand_pump-en.svg)
 
@@ -72,7 +74,8 @@ Training Values Dataset:
 * waterpoint_type_group - The kind of waterpoint
 
 # Exploratory Data Analysis:
-![Distribution Pump Status](images/distribution_pump_status.png)
+
+<img scr="images/distribution_pump_status.png" width="600">
 
 I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair"
 
@@ -109,13 +112,12 @@ The following are the columns kept for modeling:
 
 
 
-![Model Evaluation Metrics](images/model_eval_metrics.png)
 
-![Quantity Status](images/quantity_status.png)
+<img scr="images/model_eval_metrics.png" width="600">
 
-![Region Status](images/region_status.png)
+<img scr="images/quantity_status.png" width="600">
 
-<img src="images/region_status.png" width="400">
+<img src="images/region_status.png" width="600">
 
 
 # Conclusions:
