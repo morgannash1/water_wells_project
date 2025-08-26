@@ -115,6 +115,7 @@ The following are the columns kept for modeling:
 
 ![Region Status](images/region_status.png)
 
+<img src="images/region_status.png" width="400">
 
 
 # Conclusions:
