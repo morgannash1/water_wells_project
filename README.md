@@ -8,7 +8,7 @@
 # Overview:
 This project aims to build classification models to predict the functionality of water wells in Tanzania to help Non-Government Organizations determine which wells they need to repair as well as give insite to factors that most strongly affect water pump functionality.
 
-![hand_pump_diagram](hand_pump_diagram.png)
+![hand_pump_diagram](images/hand_pump_diagram.png) 
 \
 [Photo from Manco Capac](https://commons.wikimedia.org/wiki/File:Hand_pump-en.svg)
 
@@ -72,7 +72,7 @@ Training Values Dataset:
 * waterpoint_type_group - The kind of waterpoint
 
 # Exploratory Data Analysis:
-
+I began by l
 
 ## Data Preparation:
 I made the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label: "needs repair" 
@@ -102,7 +102,7 @@ The following are the numerical columns I drop as well as the reason to drop:\
 The following are the columns kept for modeling: 
 **status_group, amount_tsh, gps_height, longitude, latitude, region, population, public_meeting, scheme_management, permit, construction_year, extraction_type_class, management_group, payment_type, quantity, source_type, waterpoint_type_group**
 
-![Distribution Pump Status](distribution_pump_status.png)
+![Distribution Pump Status](images/distribution_pump_status.png)
 
 # Modeling: 
 
