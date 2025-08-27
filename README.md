@@ -1,8 +1,7 @@
 # Tanzania Water Wells Project
 **Author**: [Morgan Nash](mailto:morganmichellenash@gmail.com)
-
+August 2025
 <img src="images/manual_pump.jpg" width="900">
-
 \
 [Photo from Tanzania Rural Revival](https://tanzaniaruralrevival.org.uk/2017-visit/) 
 
@@ -11,12 +10,11 @@ This project aims to build classification models to predict the functionality of
 
 <img src="images/hand_pump_diagram.png" width="400">
 
-\
 [Photo from Manco Capac](https://commons.wikimedia.org/wiki/File:Hand_pump-en.svg)
 
 
 # Business Understanding: 
-Tanzania is facing a water crisis due to many factors, some of them include climate change (droughts), higher demand for water due to increased population, and infrastructure and management issues (lack of funding for investment in proper infrastructure). Tanzania's water supply sytem has frequent water pump breakdowns which lead to frequent disruptions in water supply. Not having access to clean water means significant time and energy is spent on travelling to collect water, taking people away from work leading to subsequent socio-economic losses. Access to safe water and sanitation improves health and helps families protect themselves from illness and disease. The Government of Tanzania as well as certain Non-Government Organizations aim to mitigate the water crisis by strategically increasing investment in the maintenance and functionality of water wells across the country.
+Tanzania is facing a water crisis due to many factors, some of them include climate change (droughts), higher demand for water due to increased population, and infrastructure and management issues (lack of funding for investment in proper infrastructure). Tanzania's water supply sytem has frequent water pump breakdowns which lead to frequent disruptions in water supply. Not having access to clean water means significant time and energy is spent on travelling to collect water, taking people away from work leading to subsequent socio-economic losses. Access to safe water and sanitation improves health and helps people protect themselves from illness and disease. The Government of Tanzania as well as certain Non-Government Organizations aim to mitigate the water crisis by strategically increasing investment in the maintenance and functionality of water wells across the country.
 ## Stakeholders:
 * Non Government Organizations (NGOs) focused on helping Tanzania gain clean water access
 * Government of Tanzania
@@ -74,17 +72,9 @@ Training Values Dataset:
 * waterpoint_type_group - The kind of waterpoint
 
 # Exploratory Data Analysis:
-I began by making the target binary by combining pumps labeled "functional needs repair" and "non functional" into one label ("needs repair").
-
-* Target Variable: I began by analyzing the target variable, status_group. The data was originally divided into three classes: 'functional', 'functional needs repair', and 'non functional'. To simplify the classification problem, I converted this into a binary classification problem by combining 'functional needs repair' and 'non functional' into a single 'needs repair' label.
-* The following shows the distribution of the classes after making status_group binary:
-
-  
-<img src="images/distribution_pump_status.png" width="400">
-
-
-* Initial Feature Exploration: I performed an initial analysis of the dataset's features by examining their value counts. This step helped me identify inconsistencies in the data, understand the cardinality of the categorical columns, and identify a significant amount of missing values in certain key features, which I address before modeling.
-
+* My initial exploration of the dataset began with an analysis of our target variable, status_group. The data was originally divided into three classes: 'functional', 'functional needs repair', and 'non functional'. To simplify the classification problem and focus on identifying water pumps that need repair, I converted this into a binary classification problem by combining 'functional needs repair' and 'non functional' into a single 'needs repair' label.
+<img src="images/distribution_pump_status.png" width="600">
+* I also performed an initial analysis of the features by examining their value counts. This step helped me identify key inconsistencies, understand the cardinality of our categorical columns, and find a significant number of missing values in certain key features, which I address prior to modeling.
 
 ## Data Preparation:
 There is a high amount of redundancy among this dataset's features, as well as very high cardinality among some of the features.
@@ -112,6 +102,16 @@ The following are the numerical columns I drop as well as the reason to drop:\
 The following are the columns kept for modeling: 
 **status_group, amount_tsh, gps_height, longitude, latitude, region, population, public_meeting, scheme_management, permit, construction_year, extraction_type_class, management_group, payment_type, quantity, source_type, waterpoint_type_group**
 
+
+My primary goal during the next part of data preparation was to prevent data leakage. I followed a series of careful steps to ensure my process was ethical and my model's evaluation was reliable.
+
+First, I handled my target variable. I converted the status_group column into a binary classification problem by encoding 'functional' as 1 and 'needs repair' as 0.
+
+With the target ready, I performed a train-test split on my entire dataset, setting aside a portion of the data for final model evaluation. This guaranteed that all subsequent preprocessing steps would be performed exclusively on the training data.
+
+Next, I addressed missing values and outliers. I used imputation to fill in the missing gps_height, population, and construction_year data. I also handled outliers in my numerical columns to ensure they would not negatively influence my model's performance.
+
+With the numerical data clean, I then prepared my categorical and numerical features for the model. I One-Hot-Encoded categorical columns as well as applied a Standard Scaler to normalize values in numerical columns. These transformations were applied to the training and test sets independently.
 
 # Modeling: 
 
