@@ -116,8 +116,8 @@ With the numerical data clean, I then prepared my categorical and numerical feat
 
 # Modeling: 
 * **Recall as an Evaluation Metric:** While evaluating models with this dataset, I chose to prioritze Recall. For this specific problem, the difference in cost between False Positives and False Negatives is significant. ('functional' pumps are Class 0 and pumps that 'need repair' are Class 1.)
-- False Positive: A model predicts that a water pump needs repair when it actually doesn't. That may mean that a crew member is sent out to work on a pump but finds that it actually works.
-- False Negative: A a model predicts that a water pump is functional when it actually needs repair. That would mean that the pump would be left alone and unrepaired, denying communities access to water.
+    - False Positive: A model predicts that a water pump needs repair when it actually doesn't. That may mean that a crew member is sent out to work on a pump but finds that it actually works.
+    - False Negative: A a model predicts that a water pump is functional when it actually needs repair. That would mean that the pump would be left alone and unrepaired, denying communities access to water.
 False Negatives have a significantly higher cost in this problem. I use Recall when evaluating my models to minimize those false negatives.
 
 * **Logistic Regression** I began by establishing a baseline with a Dummy Classifier and then explored several Logistic Regression models. My best-performing Logistic Regression model was one that included a combination of both numerical and categorical features. After tuning hyperparameters and applying class weighting, this model produced a recall score of 0.66.
