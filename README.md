@@ -1,5 +1,6 @@
 # Tanzania Water Wells Project
 **Author**: [Morgan Nash](mailto:morganmichellenash@gmail.com)
+\
 August 2025
 <img src="images/manual_pump.jpg" width="900">
 \
@@ -74,7 +75,7 @@ Training Values Dataset:
 # Exploratory Data Analysis:
 * My initial exploration of the dataset began with an analysis of our target variable, status_group. The data was originally divided into three classes: 'functional', 'functional needs repair', and 'non functional'. To simplify the classification problem and focus on identifying water pumps that need repair, I converted this into a binary classification problem by combining 'functional needs repair' and 'non functional' into a single 'needs repair' label.
 <img src="images/distribution_pump_status.png" width="600">
-* I also performed an initial analysis of the features by examining their value counts. This step helped me identify key inconsistencies, understand the cardinality of our categorical columns, and find a significant number of missing values in certain key features, which I address prior to modeling.
+* I also performed an initial analysis of the features by examining their value counts. I was able to identify inconsistencies, understand the cardinality of categorical columns, and find a significant number of missing values in certain key features, which I address prior to modeling.
 
 ## Data Preparation:
 There is a high amount of redundancy among this dataset's features, as well as very high cardinality among some of the features.
@@ -114,11 +115,18 @@ Next, I addressed missing values and outliers. I used imputation to fill in the 
 With the numerical data clean, I then prepared my categorical and numerical features for the model. I One-Hot-Encoded categorical columns as well as applied a Standard Scaler to normalize values in numerical columns. These transformations were applied to the training and test sets independently.
 
 # Modeling: 
+* **Recall as an Evaluation Metric:** While evaluating models with this dataset, I chose to prioritze Recall. For this specific problem, the difference in cost between False Positives and False Negatives is significant. ('functional' pumps are Class 0 and pumps that 'need repair' are Class 1.)
+- False Positive: A model predicts that a water pump needs repair when it actually doesn't. That may mean that a crew member is sent out to work on a pump but finds that it actually works.
+- False Negative: A a model predicts that a water pump is functional when it actually needs repair. That would mean that the pump would be left alone and unrepaired, denying communities access to water.
+False Negatives have a significantly higher cost in this problem. I use Recall when evaluating my models to minimize those false negatives.
 
+* **Logistic Regression** I began by establishing a baseline with a Dummy Classifier and then explored several Logistic Regression models. My best-performing Logistic Regression model was one that included a combination of both numerical and categorical features. After tuning hyperparameters and applying class weighting, this model produced a recall score of 0.66.
 
-
+* **Decision Tree Classifier** I moved on to a Decision Tree Classifier, which was better-suited for capturing the complex, non-linear data, producing an improved recall score of 0.75.
 
 <img src="images/model_eval_metrics.png" width="600">
+
+## Relationships Between Pump Status and Features with High-Impact:
 
 <img src="images/quantity_status.png" width="700">
 
@@ -163,4 +171,16 @@ With the numerical data clean, I then prepared my categorical and numerical feat
 
 3. Switch to a proactive system by implementing a predictive model that labels pumps as high-risk before they stop working.
 
+## For More Information
 
+See the full analysis in the [Jupyter Notebook](notebook.ipynb) 
+
+## Repository Structure
+
+```
+├── images
+├── README.MD
+├── water_wells_presentation.pdf
+└── notebook.ipynb
+
+```
