@@ -180,7 +180,7 @@ See the full analysis in the [Jupyter Notebook](notebook.ipynb)
 ```
 ├── images
 ├── README.MD
-├── water_wells_presentation.pdf
-└── notebook.ipynb
+├── notebook.ipynb
+└── water_wells_presentation.pdf
 
 ```
